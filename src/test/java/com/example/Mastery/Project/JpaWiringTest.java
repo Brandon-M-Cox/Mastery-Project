@@ -22,9 +22,9 @@ public class JpaWiringTest {
 
 	}
 	
-	@Test
-	public void shouldSaveAndLoadActor() {
-		assertThat(actorRepo.findByName("Vin").getActorName(), is("Vin"));
-	}
+//	@Test
+//	public void shouldSaveAndLoadActor() {
+//		assertThat(actorRepo.findByName("Vin").getActorName(), is("Vin"));
+//	}
 
 }
