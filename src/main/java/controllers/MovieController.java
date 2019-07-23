@@ -23,6 +23,10 @@ public class MovieController {
 	public Iterable<Movie> findAllMovies() {
 		return movieRepo.findAll();
 	}
+	@GetMapping("/movies/{id}")
+	public Movie findOneMovie(@PathVariable Long id) {
+		return movieRepo.findById(id).get();
+	}
 	
 	@PostMapping("/movies/{title}")
 	public Movie postOneMovie(@PathVariable String title) {
@@ -30,9 +34,10 @@ public class MovieController {
 	}
 	
 	@PutMapping("/movies/{id}/{newTitle}")
-	public Movie putOneSong(@PathVariable Long id, @PathVariable String newTitle) {
-		Movie songToModify = movieRepo.findById(id).get();
-		songToModify.changeTitle(newTitle);
-		return movieRepo.save(songToModify);
+	public Movie putOneMovie(@PathVariable Long id, @PathVariable String newTitle) {
+		Movie movieToModify = movieRepo.findById(id).get();
+		movieToModify.changeTitle(newTitle);
+		return movieRepo.save(movieToModify);
 	}
+
 }
