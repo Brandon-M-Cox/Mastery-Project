@@ -1,0 +1,87 @@
+package controllerWebLayerTests;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Collections;
+import java.util.Optional;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import controllers.MovieController;
+import entities.Actor;
+import entities.Movie;
+import entities.Series;
+import repositories.MovieRepository;
+import repositories.SeriesRepository;
+
+
+@WebMvcTest(MovieController.class)
+@RunWith(SpringRunner.class)
+public class MovieControllerWebLayerTest {
+
+		@Autowired
+		MockMvc mockMvc;
+		@MockBean
+		SeriesRepository seriesRepo;
+		@MockBean
+		MovieRepository movieRepo;
+
+		private Actor actor;
+		private Series series;
+		private Movie testMovie;
+		
+
+		private ObjectMapper mapper = new ObjectMapper();
+
+		@Before
+		public void setup() {
+
+			actor = new Actor("name", "imageUrl", "DOB", "Home Town");
+			series = new Series(actor, "title", "imageUrl", "studioLabel");
+			testMovie = new Movie(series, "title1", "link1", "length");
+
+		}
+
+		@Test
+		public void fetchCollectionOfMovies() throws Exception {
+			when(movieRepo.findAll()).thenReturn(Collections.singletonList(testMovie));
+			mockMvc.perform(get("/api/movies")).andExpect(status().isOk())
+					.andExpect(content().contentType("application/json;charset=UTF-8")).andExpect(content().json("[{}]"))
+					.andExpect(content().json(mapper.writeValueAsString(Collections.singletonList(testMovie)), true));
+
+		}
+
+		@Test
+		public void fetchSingleMovie() throws Exception {
+			when(movieRepo.findById(1L)).thenReturn(Optional.of(testMovie));
+			mockMvc.perform(get("/api/songs/1")).andExpect(status().isOk())
+					.andExpect(content().contentType("application/json;charset=UTF-8")).andExpect(content().json("{}"))
+					.andExpect(content().json(mapper.writeValueAsString(testMovie), true));
+		}
+		
+		@Test
+		public void createSingleMovie() throws Exception {
+			when(movieRepo.save(any(Movie.class))).thenReturn(testMovie);
+			when(movieRepo.findAll()).thenReturn(Collections.singletonList(testMovie));
+			mockMvc.perform(post("/api/movies")
+					.contentType(MediaType.APPLICATION_JSON_UTF8)
+					.content(mapper.writeValueAsString(testMovie)))
+					.andExpect(status().isOk())
+					.andExpect(content().json(mapper.writeValueAsString(Collections.singletonList(testMovie))));
+		}
+	}
