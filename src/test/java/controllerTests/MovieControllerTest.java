@@ -14,9 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import controllers.MovieController;
-import entities.Movie;
-import repositories.MovieRepository;
+import com.example.Mastery.Project.controller.MovieController;
+import com.example.Mastery.Project.entities.Movie;
+import com.example.Mastery.Project.repositories.MovieRepository;
 
 
 public class MovieControllerTest {

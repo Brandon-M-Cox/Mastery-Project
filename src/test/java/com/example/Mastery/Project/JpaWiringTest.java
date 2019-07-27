@@ -1,8 +1,9 @@
 package com.example.Mastery.Project;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertThat;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,12 +13,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import entities.Actor;
-import entities.Movie;
-import entities.Series;
-import repositories.ActorRepository;
-import repositories.MovieRepository;
-import repositories.SeriesRepository;
+import com.example.Mastery.Project.entities.Actor;
+import com.example.Mastery.Project.entities.Movie;
+import com.example.Mastery.Project.entities.Series;
+import com.example.Mastery.Project.repositories.ActorRepository;
+import com.example.Mastery.Project.repositories.MovieRepository;
+import com.example.Mastery.Project.repositories.SeriesRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -47,7 +48,7 @@ public class JpaWiringTest {
 		actorRepo.save(vin);
 		vinSeries = new Series(vin, "vins movie","imageurl"," studiolabel");
 		seriesRepo.save(vinSeries);
-		vinMovie = new Movie(vinSeries, "vin only hit", "https://www.youtube.com/watch?v=6zXDo4dL7SU", "0:04");
+		vinMovie = new Movie(vinSeries, "vins only hit", "https://www.youtube.com/watch?v=6zXDo4dL7SU", "0:04");
 		movieRepo.save(vinMovie);
 		flushAndClearEntityManager();
 	}
@@ -64,18 +65,18 @@ public class JpaWiringTest {
 	
 	@Test
 	public void shouldSaveAndLoadSeries() {
-		assertThat(seriesRepo.findByTitle("vins movies").getTitle(), is("vins movies"));
+		assertThat(seriesRepo.findByTitle("vins movie").getTitle(), is("vins movie"));
 	}
 	
 	@Test
 	public void shouldSaveAndLoadMovie() {
-	assertThat(movieRepo.findByTitle("vins only hit").getTitle(), is("vins only hit"));
+		assertThat(movieRepo.findByTitle("vins only hit").getTitle(), is("vins only hit"));
 	}
 
 	@Test
 	public void shouldHaveNameGettersForRepos() {
 		Actor retrievedActor = actorRepo.findByName("vin");
-		Series retrievedSeries = seriesRepo.findByTitle("vins songs");
+		Series retrievedSeries = seriesRepo.findByTitle("vins movie");
 		Movie retrievedMovie = movieRepo.findByTitle("vins only hit");
 		assertThat(retrievedActor, is(vin));
 		assertThat(retrievedSeries, is(vinSeries));

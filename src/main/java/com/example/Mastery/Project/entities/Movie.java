@@ -1,9 +1,11 @@
-package entities;
+package com.example.Mastery.Project.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Movie {
@@ -13,6 +15,7 @@ public class Movie {
 	private Long id;
 
 	@ManyToOne
+	@JsonIgnore
 	private Series series;
 
 	private String title;
