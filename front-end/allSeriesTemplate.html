@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Albums</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">Series Collection</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list-item"><a href="#">HOME</a></li>
+                    <li class="nav__list-item"><a href="allActorsTemplate.html">ACTORS</a></li>
+                    <li class="nav__list-item"><a href="allSeriesTemplate.html">SERIES</a></li>
+                    <li class="nav__list-item"><a href="allMoviesTemplate.html">MOVIES</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <section class="block">
+                    <h1 class="block__title">All Series List:</h1>
+                    <div class="block-list">
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200/" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Series Title</h2>
+                                <h4 class="card__list-item">Actor Name</h4>
+                                <p class="card__list-item">Studio Label</p>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200/" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Series Title</h2>
+                                <h4 class="card__list-item">Actor Name</h4>
+                                <p class="card__list-item">Studio Label</p>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200/" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Series Title</h2>
+                                <h4 class="card__list-item">Actor Name</h4>
+                                <p class="card__list-item">Studio Label</p>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200/" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Series Title</h2>
+                                <h4 class="card__list-item">Actor Name</h4>
+                                <p class="card__list-item">Studio Label</p>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200/" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Series Title</h2>
+                                <h4 class="card__list-item">Actor Name</h4>
+                                <p class="card__list-item">Studio Label</p>
+                            </section>
+                        </article>
+                        </ul>
+                    </div>
+                </section>
+                <section class="form-container">
+                    <form class="form" action="#">
+                        <h2 class="form__title">Input an series</h2>
+                        <label class="form__label">Actor name:
+                            <select class="form__select" required>
+                                <option selected></option>
+                                <option value="Vin">Vin</option>
+                            </select>
+                        </label>
+                        <label class="form__label">Title:
+                            <input class="form__input" name="title" type="text" required>
+                        </label>
+                        <label class="form__label">ImageURL:
+                            <input class="form__input" name="imageURL" type="text" required>
+                        </label>
+                        <label class="form__label" class="">Studio label:
+                            <input class="form__input" name="studioLabel" type="text" required>
+                        </label>
+                        <button class="form__button">Submit</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer class="footer">
+            <small class="footer__text">&copy; 2019</small>
+        </footer>
+    </div>
+</body>
+
+</html>

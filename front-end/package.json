@@ -1,0 +1,19 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  },
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "test": "jest /src/js --colors --coverage --watch"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
