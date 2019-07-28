@@ -14,9 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import controllers.SeriesController;
-import entities.Series;
-import repositories.SeriesRepository;
+import com.example.Mastery.Project.controller.SeriesController;
+import com.example.Mastery.Project.entities.Series;
+import com.example.Mastery.Project.repositories.SeriesRepository;
 
 
 public class SeriesControllerTest {

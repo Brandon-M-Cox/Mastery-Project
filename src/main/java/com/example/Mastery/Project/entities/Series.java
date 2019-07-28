@@ -1,4 +1,4 @@
-package entities;
+package com.example.Mastery.Project.entities;
 
 import java.util.Collection;
 
@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Series {
 	@Id
@@ -15,6 +17,7 @@ public class Series {
 	private Long id;
 
 	@ManyToOne
+	@JsonIgnore
 	private Actor actor;
 
 	private String title;
@@ -25,11 +28,11 @@ public class Series {
 	private String imageUrl;
 	private String studio;
 
-	public Series(Actor actor, String title, String imageUrl, String studio) {
+	public Series(Actor actor, String title, String imageUrl, String studioLabel) {
 		this.actor = actor;
 		this.title = title;
 		this.imageUrl = imageUrl;
-		this.studio = studio;
+		this.studio = studioLabel;
 	}
 
 	public Series(String title) {
@@ -57,7 +60,7 @@ public class Series {
 		return imageUrl;
 	}
 
-	public String getStudio() {
+	public String getStudioLabel() {
 		return studio;
 	}
 

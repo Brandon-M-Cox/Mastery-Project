@@ -1,15 +1,16 @@
-package controllers;
+package com.example.Mastery.Project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entities.Actor;
-import repositories.ActorRepository;
-
+import com.example.Mastery.Project.entities.Actor;
+import com.example.Mastery.Project.repositories.ActorRepository;
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class ActorController {

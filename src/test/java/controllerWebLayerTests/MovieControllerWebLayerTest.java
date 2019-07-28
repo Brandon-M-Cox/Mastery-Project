@@ -20,14 +20,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.Mastery.Project.controller.MovieController;
+import com.example.Mastery.Project.entities.Actor;
+import com.example.Mastery.Project.entities.Movie;
+import com.example.Mastery.Project.entities.Series;
+import com.example.Mastery.Project.repositories.MovieRepository;
+import com.example.Mastery.Project.repositories.SeriesRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import controllers.MovieController;
-import entities.Actor;
-import entities.Movie;
-import entities.Series;
-import repositories.MovieRepository;
-import repositories.SeriesRepository;
 
 
 @WebMvcTest(MovieController.class)
@@ -69,7 +68,7 @@ public class MovieControllerWebLayerTest {
 		@Test
 		public void fetchSingleMovie() throws Exception {
 			when(movieRepo.findById(1L)).thenReturn(Optional.of(testMovie));
-			mockMvc.perform(get("/api/songs/1")).andExpect(status().isOk())
+			mockMvc.perform(get("/api/movies/1")).andExpect(status().isOk())
 					.andExpect(content().contentType("application/json;charset=UTF-8")).andExpect(content().json("{}"))
 					.andExpect(content().json(mapper.writeValueAsString(testMovie), true));
 		}

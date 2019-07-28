@@ -14,9 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import controllers.ActorController;
-import entities.Actor;
-import repositories.ActorRepository;
+import com.example.Mastery.Project.controller.ActorController;
+import com.example.Mastery.Project.entities.Actor;
+import com.example.Mastery.Project.repositories.ActorRepository;
 
 
 public class ActorControllerTest {

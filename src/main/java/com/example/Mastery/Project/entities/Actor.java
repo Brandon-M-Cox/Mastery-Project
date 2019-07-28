@@ -1,27 +1,42 @@
-package entities;
+package com.example.Mastery.Project.entities;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Actor {
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String name;
 	private String imageUrl;
 	private String dateOfBirth;
 	private String homeTown;
 	
+	@OneToMany(mappedBy = "actor")
+	private Collection<Series> series;
+	
+
 	public Actor(String name, String imageUrl, String dateOfBirth, String homeTown) {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.dateOfBirth = dateOfBirth;
 		this.homeTown = homeTown;
+		this.series = new ArrayList<Series>();
 	}
-	
+
+	@SuppressWarnings("unused")
+	private Actor() {
+
+	}
+
 	public Actor(String name) {
 		this.name = name;
 	}
@@ -30,21 +45,21 @@ public class Actor {
 		return id;
 	}
 
+	public Collection<Series> getSeries() {
+		return series;
+	}
 
 	public String getName() {
 		return name;
 	}
 
-
 	public String getImageUrl() {
 		return imageUrl;
 	}
 
-
 	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
-
 
 	public String getHomeTown() {
 		return homeTown;
@@ -74,8 +89,5 @@ public class Actor {
 			return false;
 		return true;
 	}
-	
-
-
-
 }
+
