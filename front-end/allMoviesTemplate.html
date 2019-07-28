@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title"> Movies </h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list-item"><a href="#">HOME</a></li>
+                    <li class="nav__list-item"><a href="allActorsTemplate.html"> ACTORS </a></li>
+                    <li class="nav__list-item"><a href="allSeriesTemplate.html"> SERIES </a></li>
+                    <li class="nav__list-item"><a href="allMoviesTemplate.html"> MOVIES </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <section class="block">
+                    <h1 class="block__title"> All series List: </h1>
+                    <div class="block-list">
+                        <article class="card">
+                            <!-- <img class="card__image" src="http://lorempixel.com/400/200" alt="alt pic"> -->
+                            <section class="card__list">
+                                <h2 class="card__list-item">Movie title</h2>
+                                <a class="card__list-item" href="#">link to movie</a>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Movie title</h2>
+                                <a class="card__list-item" href="#">link to movie</a>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Movie title</h2>
+                                <a class="card__list-item" href="#">link to movie</a>
+                            </section>
+                        </article>
+                        <article class="card">
+                            <img class="card__image" src="http://lorempixel.com/400/200" alt="alt pic">
+                            <section class="card__list">
+                                <h2 class="card__list-item">Movie title</h2>
+                                <a class="card__list-item" href="#">link to movie</a>
+                            </section>
+                        </article>
+                    </div>
+                </section>
+                <section class="form-container">
+                    <form class="form" action="#">
+                        <h2 class="form__title">Input a movie</h2>
+                        <label class="form__label">Series title:
+                            <select class="form__select" required>
+                                <option selected></option>
+                                <option value="vinSeries">vinSeries</option>
+                            </select>
+                        </label>
+                        <label class="form__label">Title:
+                            <input class="form__input" name="title" type="text" required>
+                        </label>
+                        <label class="form__label">Link:
+                            <input class="form__input" name="link" type="text" required>
+                        </label>
+                        <label class="form__label" class="">Duration:
+                            <input class="form__input" name="duration" type="text" required>
+                        </label>
+                        <button class="form__button">Submit</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer class="footer">
+            <small class="footer__text">&copy; 2019</small>
+        </footer>
+    </div>
+
+</body>
+
+</html>
