@@ -38,23 +38,23 @@ public class Initializer implements CommandLineRunner {
 	}
 
 	private void populateMovies() {
-		Movie vinsMovie1 = new Movie(vinSeries1, "(You Lift Me) Up to Heaven",
-				"https://www.youtube.com/watch?v=4rrpiJDNp_E", "2:45");
+		Movie vinsMovie1 = new Movie(vinSeries1, "The Fast and the Furious",
+				"https://www.imdb.com/title/tt0232500/", "0:59");
 		movieRepo.save(vinsMovie1);
 		
 	}
 
 	private void populateSeries() {
-		vinSeries1 = new Series(vin, "Feel the Fire",
-				"https://upload.wikimedia.org/wikipedia/en/9/99/RebaFeeltheFire.jpg", "some record label");
+		vinSeries1 = new Series(vin, "The Fast and the Furious",
+				"https://vignette.wikia.nocookie.net/fastandfurious/images/0/04/The_Fast_and_the_Furious_%28DVD_Cover%29.jpeg/revision/latest?cb=20150501043627", "Universal Pictures");
 		seriesRepo.save(vinSeries1);
 		
 	}
 
 	private void populateActors() {
 		vin = new Actor("Vin Diesel",
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnflbi2fU-1-gBhW5ZC8I_JTGTdFIav6aKz_d3Kpe6Tk_E-WZC",
-				"March 28, 1955", "McAlester, Oklahoma");
+				"http://www.gstatic.com/tv/thumb/persons/79719/79719_v9_bb.jpg",
+				"July 18, 1967", "Alameda County, CA");
 		actorRepo.save(vin);
 		
 	}
