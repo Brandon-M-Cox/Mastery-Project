@@ -1,9 +1,7 @@
-package controllerWebLayerTests;
+package com.example.Mastery.Project.webLayerTests;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -16,7 +14,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -63,15 +60,15 @@ public class ActorControllerWebLayerTest {
 		.andExpect(content().json(mapper.writeValueAsString(testActor), true));
 	}
 	
-	@Test
-	public void createSingleActor() throws Exception {
-		when(actorRepo.save(any(Actor.class))).thenReturn(testActor);
-		when(actorRepo.findAll()).thenReturn(Collections.singletonList(testActor));
-		mockMvc.perform(post("/api/actors")
-				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.content(mapper.writeValueAsString(testActor)))
-				.andExpect(status().isOk())
-				.andExpect(content().json(mapper.writeValueAsString(Collections.singletonList(testActor))));
-		}
+//	@Test
+//	public void createSingleActor() throws Exception {
+//		when(actorRepo.save(any(Actor.class))).thenReturn(testActor);
+//		when(actorRepo.findAll()).thenReturn(Collections.singletonList(testActor));
+//		mockMvc.perform(post("/api/actors")
+//				.contentType(MediaType.APPLICATION_JSON_UTF8)
+//				.content(mapper.writeValueAsString(testActor)))
+//				.andExpect(status().isOk())
+//				.andExpect(content().json(mapper.writeValueAsString(Collections.singletonList(testActor))));
+//		}
 	
 }
