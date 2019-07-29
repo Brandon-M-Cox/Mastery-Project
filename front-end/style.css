@@ -108,7 +108,7 @@ ul {
   /* min-height: 100vh; */
 }
 .wrapper {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  background: black;
   background-size: cover;
   min-height: 100vh;
 }
